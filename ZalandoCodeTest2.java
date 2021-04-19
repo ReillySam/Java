@@ -2,15 +2,15 @@ import java.util.HashMap;
 
 public class ZalandoCodeTest2 {
 
-    // phone dial, will do the corner cases another time
+    // phone dial, will do the base cases another time
 
     public String solution(String[] A, String[] B, String P) {
         // write your code in Java SE 8
         // base cases
         // 0 < name string < 10
         // lowercase English letters
-        // P is only digits
-        // phone number only digits
+        // P is only digits 1.. 9
+        // phone number only digits 1.. 9
 
         String result = "";
 
@@ -37,6 +37,7 @@ public class ZalandoCodeTest2 {
         }
         return contact;
     }
+    
 
     public static void main(String[] args){
         ZalandoCodeTest2 zct2 = new ZalandoCodeTest2();
