@@ -31,7 +31,7 @@ public class ZalandoCodeTest3 {
 
         // loop for potential rolls
         for (int i = 0; i < res.length; i++) {
-            // result is the potential roll, then decrement F for roll taken
+            // result is the potential roll, then decrement F for roll taken i.e. future rolls
             res[i] = remainderF/F--;
             // minus the remainder by the taken roll
             remainderF -= res[i];
