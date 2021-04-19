@@ -4,8 +4,8 @@ public class ZalandoCodeTest1 {
 
     public int solution(int[] A) {
         // write your code in Java SE 8
-
-        // base cases
+        
+        
         int sum = 0;
         for (int i: A) {
             if (i > 9 && i < 100) {
