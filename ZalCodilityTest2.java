@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class ZalandoCodeTest2 {
 
-    // phone dial, will do the base cases another time
+    // phone lookup using substring, will do the base cases another time
 
     public String solution(String[] A, String[] B, String P) {
         // write your code in Java SE 8
@@ -30,7 +30,7 @@ public class ZalandoCodeTest2 {
         // return the contact
         String contact = "";
         for (String b: phoneBook.keySet()) {
-            // assign the key to name
+            // assign the key(name) to contact
             if (phoneBook.containsValue(result)) {
                 contact = b;
             }
