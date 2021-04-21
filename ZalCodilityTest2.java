@@ -13,16 +13,15 @@ public class ZalCodilityTest2 {
         // P is only digits
         // phone number only digits
 
-        String result = "";
         // validate P
         if(!P.chars().allMatch(Character::isDigit) || P.length() == 0) {
             return "No Contact";
         }
 
         HashMap<String, String> phoneBook = new HashMap();
-        // populate phone book (name, number) + validation
+        // populate phone book (name, number) + lowercase english letters. Chosen to add 
         for (int i = 0; i < A.length; i++)  {
-            phoneBook.put(A[i].toLowerCase(Locale.ROOT), B[i]);
+            phoneBook.put(A[i], B[i]);
         }
 
         // if entry contains an illegal character remove it
@@ -31,7 +30,7 @@ public class ZalCodilityTest2 {
             if (A[i].length() <= 0 || A[i].length() >= 10) {
                 phoneBook.remove(A[i]);
             }
-            // lowercase English letters
+            // lowercase English letters and digits
             else if (!A[i].matches("^[a-z]+$") || !A[i].matches("[a-zA-Z]+") || A[i].matches(".*\\d.*")) {
                 phoneBook.remove(A[i]);
             }
@@ -40,8 +39,9 @@ public class ZalCodilityTest2 {
                 phoneBook.remove(A[i]);
             }
         }
-
-        // check for substring
+        
+        // check for substring        
+        String result = "";
         for (String a: phoneBook.values()) {
             if (a.contains(P)) {
                 result = a;
@@ -63,7 +63,8 @@ public class ZalCodilityTest2 {
         ZalCodilityTest2 zct2 = new ZalCodilityTest2();
         System.out.println(zct2.solution(new String[] {"pim", "pom"}, new String[]{"9999999199", "777888999"}, "8899")); //pom
         System.out.println(zct2.solution(new String[] {"tom", "jerry"}, new String[]{"012345678", "777888999"}, "345")); //tom
-        System.out.println(zct2.solution(new String[] {"Ed", "frank"}, new String[]{"999999999", "777888999"}, "")); // No contact
-        System.out.println(zct2.solution(new String[] {"Eddie", "frank99"}, new String[]{"999999999", "777888999"}, "8899")); // No contact
+        System.out.println(zct2.solution(new String[] {"ed", "frank"}, new String[]{"999999999", "777888999"}, "")); // No contact
+        System.out.println(zct2.solution(new String[] {"eddie", "frank99"}, new String[]{"999999999", "777888999"}, "8899")); // No contact
+        System.out.println(zct2.solution(new String[] {"jerry", "Frank"}, new String[]{"999999999", "777888999"}, "8899")); // No contact
     }
 }
