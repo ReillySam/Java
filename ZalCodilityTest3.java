@@ -25,7 +25,7 @@ public class ZalandoCodeTest3 {
         int remainderF = (M * totalRolls) - sum;
 
         // not possible if the potential roll is greater than the remainder or if the remainder is greater than 6 (max roll)
-         if(F > remainderF || remainderF / F > 6) {
+        if (F > remainderF || remainderF / F > 6) {
             return new int[] {0};
         }
 
