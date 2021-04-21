@@ -3,7 +3,7 @@ import java.util.Locale;
 
 public class ZalCodilityTest2 {
 
-    // phone dial, will do the corner cases another time
+    // phone dial lookup from substring input
 
     public String solution(String[] A, String[] B, String P) {
         // write your code in Java SE 8
