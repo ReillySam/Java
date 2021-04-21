@@ -1,6 +1,7 @@
 import java.util.HashMap;
+import java.util.Locale;
 
-public class ZalandoCodeTest2 {
+public class ZalCodilityTest2 {
 
     // phone dial, will do the corner cases another time
 
@@ -18,23 +19,26 @@ public class ZalandoCodeTest2 {
             return "No Contact";
         }
 
-        // populate phone book (name, number) + validation
         HashMap<String, String> phoneBook = new HashMap();
+        // populate phone book (name, number) + validation
+        for (int i = 0; i < A.length; i++)  {
+            phoneBook.put(A[i].toLowerCase(Locale.ROOT), B[i]);
+        }
+
+        // if entry contains an illegal character remove it
         for (int i = 0; i < A.length; i++) {
             // length of name string, skip if it's false
-            if (A[i].length() <= 0 || A[i].length() > 9) {
-                phoneBook.clear();
+            if (A[i].length() <= 0 || A[i].length() >= 10) {
+                phoneBook.remove(A[i]);
             }
-            // lowercase english letters (this can be shortened), skip if it's false
-            else if (!A[i].matches("^[a-z]+$") || !A[i].matches("[a-zA-Z]+")) {
-                phoneBook.clear();
+            // lowercase English letters
+            else if (!A[i].matches("^[a-z]+$") || !A[i].matches("[a-zA-Z]+") || A[i].matches(".*\\d.*")) {
+                phoneBook.remove(A[i]);
             }
-            // phone number are only digits 1.. 9
+            // phone number only digits 1.. 9
             else if (!B[i].chars().allMatch(Character::isDigit)) {
-                phoneBook.clear();
+                phoneBook.remove(A[i]);
             }
-
-            phoneBook.put(A[i], B[i]);
         }
 
         // check for substring
@@ -56,10 +60,10 @@ public class ZalandoCodeTest2 {
     }
 
     public static void main(String[] args){
-        ZalandoCodeTest2 zct2 = new ZalandoCodeTest2();
-//        System.out.println(zct2.solution(new String[] {"pim", "pom"}, new String[]{"9999999199", "777888999"}, "9199"));
-//        System.out.println(zct2.solution(new String[] {"tom", "jerry"}, new String[]{"012345678", "777888999"}, "345"));
-//        System.out.println(zct2.solution(new String[] {"Ed", "frank"}, new String[]{"999999999", "777888999"}, ""));
-        System.out.println(zct2.solution(new String[] {"Ed11", "frank99"}, new String[]{"999999999", "777888999"}, "8899"));
+        ZalCodilityTest2 zct2 = new ZalCodilityTest2();
+        System.out.println(zct2.solution(new String[] {"pim", "pom"}, new String[]{"9999999199", "777888999"}, "8899")); //pom
+        System.out.println(zct2.solution(new String[] {"tom", "jerry"}, new String[]{"012345678", "777888999"}, "345")); //tom
+        System.out.println(zct2.solution(new String[] {"Ed", "frank"}, new String[]{"999999999", "777888999"}, "")); // No contact
+        System.out.println(zct2.solution(new String[] {"Eddie", "frank99"}, new String[]{"999999999", "777888999"}, "8899")); // No contact
     }
 }

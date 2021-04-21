@@ -1,4 +1,4 @@
-public class ZalandoCodeTest1 {
+public class ZalCodilityTest1 {
 
     // Sum of all two digit numbers
 
@@ -20,7 +20,7 @@ public class ZalandoCodeTest1 {
     }
 
     public static void main(String[] args){
-        ZalandoCodeTest1 zct1 = new ZalandoCodeTest1();
+        ZalCodilityTest1 zct1 = new ZalCodilityTest1();
         System.out.println(zct1.solution(new int[] { 1,1000,80,-91 } )); // -11
 //        System.out.println(zct1.solution(new int[] { 47,1900,1,90,45 } )); // 182
     }
