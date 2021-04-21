@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class ZalandoCodeTest3 {
 
-    // dice roll, return missing results
+    // dice roll, return potential missing rolls
     public int[] solution(int[] A, int F, int M) {
         // write your code in Java SE 8
 
@@ -16,23 +16,24 @@ public class ZalandoCodeTest3 {
         int totalRolls = A.length + F;
         int sum = 0;
 
+        // summ all know rolls 
         for (int el : A) {
             sum += el;
         }
-
+        
+        // remainder is the sum of potential dice rolls
         int remainderF = (M * totalRolls) - sum;
-        System.out.println(remainderF);
 
-        //not possible 0 median
-        if(F > remainderF || remainderF / F > 6) {
+        // not possible if the potential roll is greater than the remainder or if the remainder is greater than 6 (max roll)
+        if (F > remainderF || remainderF / F > 6) {
             return new int[] {0};
         }
 
         // loop for potential rolls
         for (int i = 0; i < res.length; i++) {
-            // result is the potential roll, then decrement F for roll taken
+            // result is the potential roll, then decrement F for roll taken i.e. future rolls
             res[i] = remainderF/F--;
-            // minus the remainder by the taken roll
+            // new remainder
             remainderF -= res[i];
         }
         return res;
