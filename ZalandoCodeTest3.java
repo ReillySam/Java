@@ -21,14 +21,18 @@ public class ZalandoCodeTest3 {
         }
 
         int remainderF = (M * totalRolls) - sum;
+        System.out.println(remainderF);
 
         //not possible 0 median
         if(F > remainderF || remainderF / F > 6) {
             return new int[] {0};
         }
 
+        // loop for potential rolls
         for (int i = 0; i < res.length; i++) {
+            // result is the potential roll, then decrement F for roll taken
             res[i] = remainderF/F--;
+            // minus the remainder by the taken roll
             remainderF -= res[i];
         }
         return res;
