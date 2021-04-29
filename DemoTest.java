@@ -2,6 +2,8 @@ import java.util.HashMap;
 
 public class DemoTest {
 
+    // Find the smallest positive integer
+    
     public int solution(int[] A) {
         // write your code in Java SE 8
 
